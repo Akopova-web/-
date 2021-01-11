@@ -1,0 +1,24 @@
+.form_block {
+    display: flex;
+flex-direction: column;
+align-items: center;
+padding-bottom: 10px;
+}
+.form_block .form {
+    display: none;
+}
+.form_block .addButton::after{
+    content: ' ▶';
+}
+.form_block.open .form {
+display: block;
+}
+.form_block.open .addButton::after{
+    content: ' ▼';
+}
+.addButton {
+    margin-bottom: 10px;
+}
+.form.error input{
+    border: solid red 2px;
+}

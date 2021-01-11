@@ -1,0 +1,15 @@
+.content {
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+.search {
+    display: block;
+    text-align: center;
+    border-collapse: collapse;
+    border-spacing: 5px;
+    border-radius: 20px;
+    background: #E1E3E0;
+    width: 78%;
+    margin: 20px;
+}
