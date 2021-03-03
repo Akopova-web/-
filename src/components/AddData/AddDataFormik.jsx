@@ -1,4 +1,4 @@
-//Добавление строки в таблицу с валидацей и использованием библиотеки Formik
+//Добавление строки в таблицу с валидацией и использованием библиотеки Formik
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import React from 'react';
@@ -9,11 +9,7 @@ export const SignupForm = (props) => {
     let addingForm = document.querySelector('.form_block');
     addingForm.classList.toggle('open');
   }
-  // const toggleError = (el) => {
-  //   console.log(el);
-  //   let name = document.querySelector(el);
-  //   name.classList.toggle('error');
-  // }
+
   const formik = useFormik({
     initialValues: {
       id: '',

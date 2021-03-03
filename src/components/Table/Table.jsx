@@ -1,62 +1,32 @@
-import React, { useMemo, useState } from 'react';
+import React from 'react';
 import './Table.css';
 
-const useSortableData = (items, config = null) => {
-    const [sortConfig, setSortConfig] = useState(config);
-
-    const sortedItems = useMemo(() => {
-        let sortableItems = items;
-        if (sortConfig !== null) {
-            sortableItems.sort((a, b) => {
-                if (a[sortConfig.key] < b[sortConfig.key]) {
-                    return sortConfig.direction === 'ascending' ? -1 : 1;
-                }
-                if (a[sortConfig.key] > b[sortConfig.key]) {
-                    return sortConfig.direction === 'ascending' ? 1 : -1;
-                }
-                return 0;
-            });
-        }
-        return sortableItems;
-    }, [items, sortConfig]);
-
-    const requestSort = key => {
-        let direction = 'ascending';
-        if (sortConfig && sortConfig.key === key && sortConfig.direction === 'ascending') {
-            direction = 'descending';
-        }
-        setSortConfig({ key, direction });
-    }
-
-    return { items: sortedItems, requestSort };
-}
 export const Table = (props) => {
-    const { items, requestSort } = useSortableData(props.table);
     return <table className="table">
         <thead>
             <tr>
                 <th>
-                    <button onClick={() => { requestSort('id') }}>
+                    <button onClick={() => { ('id') }}>
                         id
                     </button>
                 </th>
                 <th>
-                    <button onClick={() => { requestSort('firstName') }}>
+                    <button onClick={() => { ('firstName') }}>
                         firstName
                     </button>
                 </th>
                 <th>
-                    <button onClick={() => { requestSort('lastName') }}>
+                    <button onClick={() => { ('lastName') }}>
                         lastName
                     </button>
                 </th>
                 <th>
-                    <button onClick={() => { requestSort('email') }}>
+                    <button onClick={() => { ('email') }}>
                         email
                     </button>
                 </th>
                 <th>
-                    <button onClick={() => { requestSort('phone') }}>
+                    <button onClick={() => { ('phone') }}>
                         phone
                     </button>
                 </th>
@@ -70,7 +40,7 @@ export const Table = (props) => {
             <td>{props.newPerson.email}</td>
             <td>{props.newPerson.phone}</td>
             </tr>
-            {props.table.map(item => (
+            {props.data.map(item => (
                 <tr key={item.id + item.phone} onClick={props.onRowSelect.bind(null, item)} >
                     <td>{item.id}</td>
                     <td>{item.firstName}</td>

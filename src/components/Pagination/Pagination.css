@@ -1,0 +1,13 @@
+.pagination {
+    margin: 25px;
+    display: flex;
+    cursor: pointer;
+    }
+
+    .pageNumber {
+        padding: 5px;
+    }
+
+    .pageNumber.selectedPage {
+        font-weight: bold;
+    }
