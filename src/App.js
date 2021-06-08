@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 import "./App.css";
 import { ModeSelector } from "./components/ModeSelector/ModeSelector";
-import TableContainer from "./components/Table/TableContainer.Right";
+import TableContainer from "./components/Table/TableContainer";
 import Preloader from "./components/utility/Preloader";
 
 class App extends React.Component {

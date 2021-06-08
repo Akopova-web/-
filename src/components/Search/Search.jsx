@@ -1,22 +1,43 @@
-import React, { useState } from 'react';
-import './Search.css';
+import React, { useState } from "react";
+import "./Search.css";
 
 const Search = (props) => {
+  let [filter, setFilteredList] = useState(props.data);
+  let [inputValue, setValue] = useState();
+  let items = Object.values(props.data);
+  const setInputValue = (e) => {
+    setValue(e.target.value);
+  };
+  let filterList = (value) => {
+    let filteredList = items.filter((element) => {
+      return (
+        String(element.id).search(value) !== -1 ||
+        element.firstName.toLowerCase().search(value) !== -1 ||
+        element.lastName.toLowerCase().search(value) !== -1 ||
+        element.email.toLowerCase().search(value) !== -1 ||
+        String(element.phone).search(value) !== -1
+      );
+    });
+    setFilteredList(filteredList);
+    props.searchData(filter);
+  };
 
-    let [filter, setFilteredList] = useState(props.data);
-    let items = Object.values(props.data);
-
-    let filterList = (e) => {
-        var filteredList = items.filter((element) => {
-            return String(element.id).search(e.target.value) !== -1 || element.firstName.toLowerCase().search(e.target.value) !== -1
-                || element.lastName.toLowerCase().search(e.target.value) !== -1 || element.email.toLowerCase().search(e.target.value) !== -1
-                || String(element.phone).search(e.target.value) !== -1;
-        });
-        setFilteredList(filteredList);
-        props.searchData(filteredList)
-    }
-    return <div className="content">
-        <input className="search" placeholder="Поиск" onChange={filterList} />
+  return (
+    <div className="content">
+      <input
+        className="search"
+        placeholder="Поиск"
+        onChange={setInputValue}
+      ></input>
+      <button
+        onClick={() => {
+          filterList(inputValue);
+        }}
+      >
+        Search
+      </button>
     </div>
-}
+  );
+};
+
 export default Search;

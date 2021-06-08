@@ -6,27 +6,27 @@ export const Table = (props) => {
         <thead>
             <tr>
                 <th>
-                    <button onClick={() => { ('id') }}>
+                    <button onClick={() => {  }}>
                         id
                     </button>
                 </th>
                 <th>
-                    <button onClick={() => { ('firstName') }}>
+                    <button onClick={() => {  }}>
                         firstName
                     </button>
                 </th>
                 <th>
-                    <button onClick={() => { ('lastName') }}>
+                    <button onClick={() => {  }}>
                         lastName
                     </button>
                 </th>
                 <th>
-                    <button onClick={() => { ('email') }}>
+                    <button onClick={() => {  }}>
                         email
                     </button>
                 </th>
                 <th>
-                    <button onClick={() => { ('phone') }}>
+                    <button onClick={() => {  }}>
                         phone
                     </button>
                 </th>
